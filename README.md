@@ -7,6 +7,11 @@ kubectl apply -f k8s-admin-rbac.yml
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep k8s-admin | awk '{print $1}')
 ```
 
+For 1.24+
+```
+kubectl create token k8s-admin -n kube-system
+```
+
 ```
 kubectl config view --flatten --minify > kubeconfig
 cat kubeconfig
