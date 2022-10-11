@@ -12,8 +12,8 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 ```
 
 For 1.24+
-Download and install the latest kubectl
 ```
+# Download and install the latest kubectl if needed
 curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
 sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
