@@ -1,13 +1,21 @@
+
 ```
 kubectl apply -f k8s-admin-sa.yml
 kubectl apply -f k8s-admin-rbac.yml
 ```
 
+For <= 1.23
 ```
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep k8s-admin | awk '{print $1}')
 ```
 
-For 1.24+, or refer https://www.programmingwithwolfgang.com/use-the-tokenrequest-api-to-create-token-in-kubernetes/
+For 1.24+
+Download and install the latest kubectl
+```
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+```
+
 ```
 kubectl create token k8s-admin --duration=999999h -n kube-system
 ```
