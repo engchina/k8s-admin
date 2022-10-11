@@ -9,7 +9,7 @@ kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | gre
 
 For 1.24+, or refer https://www.programmingwithwolfgang.com/use-the-tokenrequest-api-to-create-token-in-kubernetes/
 ```
-kubectl create token k8s-admin -n kube-system
+kubectl create token k8s-admin --duration=999999h -n kube-system
 ```
 
 ```
